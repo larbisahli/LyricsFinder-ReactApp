@@ -1,3 +1,7 @@
+
+### check it out live: https://lyricsfinder-ls.netlify.com
+[![Netlify Status](https://api.netlify.com/api/v1/badges/97508865-4816-4183-983b-6960f3133ee1/deploy-status)](https://app.netlify.com/sites/lyricsfinder-ls/deploys)
+---------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
