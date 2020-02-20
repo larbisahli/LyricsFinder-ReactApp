@@ -1,0 +1,4 @@
+- npm i node-sass
+- router
+- axios
+- moment / react-moment
