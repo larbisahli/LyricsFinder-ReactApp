@@ -6,7 +6,7 @@ import Moment from "react-moment";
 import "./Lyrics.scss";
 
 const Lyrics = () => {
-  const [track, setTrack] = useState({ track: "" });
+  const [{ track }, setTrack] = useState({ track: "" });
   const [lyrics, setLyrics] = useState({ lyrics: "" });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -58,7 +58,7 @@ const Lyrics = () => {
   };
 
   return (
-    <div className="index_container">
+    <div className="index_container _container">
       {isLoading ? (
         <div className="lyrics_container">
           <Link to="/" className="back_btn">
@@ -67,31 +67,34 @@ const Lyrics = () => {
           <Fragment>
             <div className="card">
               <h4 className="card_head">
-                {track.track.track_name} by{" "}
-                <span className="span_text">{track.track.artist_name}</span>
+                {track.track_name} by{" "}
+                <span className="span_text">{track.artist_name}</span>
               </h4>
               <div className="card_body">
-                <p className="card_lyrics">{_catch_lyrics(lyrics.lyrics)}</p>
+                <pre className="card_lyrics">
+                  {_catch_lyrics(lyrics.lyrics)}
+                </pre>
               </div>
             </div>
-            <ul className="list_container">
-              <li className="list_items">
-                <strong>Album ID</strong>: {track.track.album_id}
-              </li>
-              <li className="list_items">
-                <strong>Song Genre</strong>:{" "}
-                {track.track &&
-                  _catch_genre(track.track.primary_genres.music_genre_list)}
-              </li>
-              <li className="list_items">
-                <strong>Explicit Words</strong>:{" "}
-                {track.track.explicit === 0 ? "No" : "Yes"}
-              </li>
-              <li className="list_items">
-                <strong>Release Date</strong>:{" "}
-                <Moment format="MM/DD/YYYY">{track.track.updated_time}</Moment>
-              </li>
-            </ul>
+            <div className="sider">
+              <ul className="list_container">
+                <li className="list_items">
+                  <strong>Album ID</strong>: {track.album_id}
+                </li>
+                <li className="list_items">
+                  <strong>Song Genre</strong>:{" "}
+                  {track && _catch_genre(track.primary_genres.music_genre_list)}
+                </li>
+                <li className="list_items">
+                  <strong>Explicit Words</strong>:{" "}
+                  {track.explicit === 0 ? "No" : "Yes"}
+                </li>
+                <li className="list_items">
+                  <strong>Release Date</strong>:{" "}
+                  <Moment format="MM/DD/YYYY">{track.updated_time}</Moment>
+                </li>
+              </ul>
+            </div>
           </Fragment>
         </div>
       ) : (

@@ -1,59 +1,106 @@
-.lyrics_container {
-    margin-top: 15vh;
-    margin-bottom: 3vh;
+._container {
 
-    .back_btn {
-        width: 100%;
-        text-align: center;
-        background: #333;
-        text-decoration: none;
-        color: #fff;
-        padding: 5px 8px;
-        border-radius: 3px;
-        z-index: 0;
+    @media only screen and (max-width: 1150px) {
+        margin-right: 5vw;
+        margin-left: 5vw;
+        justify-content: stretch;
+        align-items: stretch;
 
-        &:hover {
-            background: #000;
+    }
 
-            .fa-arrow-circle-left {
-                color: #88a7ff;
+    .lyrics_container {
+        margin-top: 15vh;
+        margin-bottom: 3vh;
+
+
+        @media only screen and (max-width: 1150px) {
+            margin-top: 0;
+            margin-bottom: 0;
+
+        }
+
+
+        .back_btn {
+            width: 100%;
+            text-align: center;
+            background: #333;
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 3px;
+            z-index: 0;
+
+            &:hover {
+                background: #000;
+
+                .fa-arrow-circle-left {
+                    color: #88a7ff;
+                }
+            }
+        }
+
+        .card {
+            margin-top: 25px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            overflow-x: auto;
+
+
+            .card_head {
+                background-color: #f3f3f3;
+                padding: 13px 20px;
+                border-bottom: 2px solid #ccc;
+
+                .span_text {
+                    color: #7c7c7c;
+                }
+            }
+
+            .card_body {
+                padding: 20px;
+
+                .card_lyrics {
+                    text-align: justify;
+                    text-decoration: uppercase;
+                    letter-spacing: 2px;
+                    font-size: 17px;
+                    font-weight: 450;
+                    line-height: 1.8;
+
+                    @media only screen and (max-width: 700px) {
+                        letter-spacing: 1px;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 1.5;
+
+                    }
+
+
+                }
             }
         }
     }
-
-    .card {
-        margin-top: 25px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
+}
 
 
-        .card_head {
-            background-color: #f3f3f3;
-            padding: 13px 20px;
-            border-bottom: 2px solid #ccc;
+.list_container {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0;
+    position: fixed;
+    left: 2vh;
+    top: 30vh;
 
-            .span_text {
-                color: #7c7c7c;
-            }
-        }
-
-        .card_body {
-            padding: 20px;
-        }
+    @media only screen and (max-width: 1150px) {
+        margin: 30px;
+        position: relative;
+        left: 0;
+        top: 0;
     }
 
-    .list_container {
-        margin-top: 20px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        padding: 0;
-
-
-
-        .list_items {
-            border-bottom: 1px solid #ccc;
-            list-style: none;
-            padding: 13px 20px;
-        }
+    .list_items {
+        border-bottom: 1px solid #ccc;
+        list-style: none;
+        padding: 13px 20px;
     }
 }
