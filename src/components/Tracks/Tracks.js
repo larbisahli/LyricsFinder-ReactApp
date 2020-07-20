@@ -13,7 +13,7 @@ const Tracks = () => {
         <Fragment>
           <h3 className="title">{heading}</h3>
           <div className="tracks_container">
-            {trackList.map(item => {
+            {trackList.map((item) => {
               return <Track key={item.track.track_id} track={item.track} />;
             })}
           </div>

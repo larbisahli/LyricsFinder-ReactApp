@@ -18,24 +18,24 @@ const Lyrics = () => {
       .get(
         `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${id}&apikey=${process.env.REACT_APP_MM_KEY}`
       )
-      .then(respond => {
+      .then((respond) => {
         setLyrics({ lyrics: respond.data.message.body.lyrics });
 
         return axios.get(
           `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.get?track_id=${id}&apikey=${process.env.REACT_APP_MM_KEY}`
         );
       })
-      .then(respond => {
+      .then((respond) => {
         // this is for the second api call
         setTrack(
           { track: respond.data.message.body.track },
           setIsLoading(true)
         );
       })
-      .catch(err => console.log("err", err));
+      .catch((err) => console.log("err", err));
   }, []);
 
-  const _catch_genre = data => {
+  const _catch_genre = (data) => {
     // music_genre sometimes is empty
     if (data.lenght > 0) {
       return data[0].music_genre.music_genre_name;
@@ -44,7 +44,7 @@ const Lyrics = () => {
     }
   };
 
-  const _catch_lyrics = lyrics => {
+  const _catch_lyrics = (lyrics) => {
     try {
       return lyrics.lyrics_body;
     } catch {

@@ -10,12 +10,12 @@ export const Item = ({
   activeItem,
   TotalItems,
   showMenu,
-  HundleClick
+  HundleClick,
 }) => {
   useEffect(() => {
     addItem({
       id: id,
-      item: value
+      item: value,
     });
   }, []);
 
@@ -39,7 +39,7 @@ export const Item = ({
         onClick={() =>
           HundleClick({
             id: id,
-            value: value
+            value: value,
           })
         }
         className={Myclass()}
@@ -50,7 +50,7 @@ export const Item = ({
   );
 };
 
-const Dropdown = props => {
+const Dropdown = (props) => {
   const { hundleCountry } = useContext(TrackContext);
 
   const [activeItem, setActiveItem] = useState(props.activeItem);
@@ -59,7 +59,7 @@ const Dropdown = props => {
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const addItem = newItem => {
+  const addItem = (newItem) => {
     let isNewitemFound;
     for (let i in items.items) {
       let item = items.items[i];
@@ -71,28 +71,28 @@ const Dropdown = props => {
     }
 
     if (!isNewitemFound) {
-      setItems(prevState => {
+      setItems((prevState) => {
         return {
-          items: prevState.items.concat(newItem)
+          items: prevState.items.concat(newItem),
         };
       });
     }
   };
 
-  const handelShowMenu = event => {
+  const handelShowMenu = (event) => {
     event.preventDefault();
 
     setShowMenu(!showMenu, document.addEventListener("click", closeMenu));
   };
 
-  const closeMenu = event => {
+  const closeMenu = (event) => {
     const data = event.target.getAttribute("data-id");
 
     if (!(typeof data === "string" && !props.closeOnSelect))
       setShowMenu(false, document.removeEventListener("click", closeMenu));
   };
 
-  const Choose = item => {
+  const Choose = (item) => {
     setActiveItem(item, hundleCountry(item));
   };
 
@@ -126,7 +126,7 @@ const Dropdown = props => {
             HundleClick: Choose,
             index: index,
             TotalItems: TotalItems,
-            showMenu: showMenu
+            showMenu: showMenu,
           })
         )}
       </div>
