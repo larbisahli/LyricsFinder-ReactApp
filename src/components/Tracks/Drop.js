@@ -3,7 +3,7 @@ import React from "react";
 const Menu = ({ Selected, value }) => {
   // _______class var_______
 
-  const _OpItems = 'option' + (value === "Artist" ? " active top" : "");
+  const _OpItems = "option" + (value === "Artist" ? " active top" : "");
   const _OpUsers = "option" + (value === "Track" ? " active bottom" : "");
 
   // _______________________
