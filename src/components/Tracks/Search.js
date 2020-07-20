@@ -20,7 +20,7 @@ const Search = () => {
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const ShowMenu = event => {
+  const ShowMenu = (event) => {
     event.preventDefault();
 
     setShowMenu(!showMenu, document.addEventListener("click", CloseMenu));
@@ -35,7 +35,7 @@ const Search = () => {
     setShowMenu(false, document.removeEventListener("click", CloseMenu));
   };
 
-  const Selected = event => {
+  const Selected = (event) => {
     const value = event.target.textContent;
 
     if (value === "Artist") {
@@ -46,7 +46,7 @@ const Search = () => {
     setSelect(value);
   };
 
-  const HundleChange = e => {
+  const HundleChange = (e) => {
     setTrackTitle({ [e.target.name]: e.target.value });
   };
 
@@ -58,27 +58,27 @@ const Search = () => {
     setHighLight(false);
   };
 
-  const HundlekeyPress = event => {
+  const HundlekeyPress = (event) => {
     if (event.key === "Enter") {
       HandleSubmit(event);
     }
   };
 
-  const HandleSubmit = e => {
+  const HandleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
     axios
       .get(
         `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?${filterSelect}=${trackTitle.trackTitle}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`
       )
-      .then(respond => {
+      .then((respond) => {
         setTrackList(
           [...respond.data.message.body.track_list],
           setIsLoading(false),
           setHeading("Search Results")
         );
       })
-      .catch(err => console.log("err", err));
+      .catch((err) => console.log("err", err));
   };
 
   const _Divider = "divider" + (highLight ? " _D_active" : "");

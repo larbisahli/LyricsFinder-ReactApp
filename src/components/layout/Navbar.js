@@ -10,7 +10,7 @@ const Navbar = () => {
         <Dropdown
           activeItem={{
             id: "us",
-            value: "UNITED STATES"
+            value: "UNITED STATES",
           }}
           closeOnSelect={true}
         >
